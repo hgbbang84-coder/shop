@@ -1,1 +1,1 @@
-{"scripts":{"check":"tsc --noEmit"},"devDependencies":{"@cloudflare/workers-types":"latest","typescript":"latest","wrangler":"latest"}}
+{"scripts":{"check":"tsc --noEmit"},"devDependencies":{"@cloudflare/workers-types":"latest","typescript":"latest","wrangler":"latest"},"dependencies":{"bcryptjs":"^3.0.3"}}
