@@ -4,5 +4,6 @@
   "main": "src/index.ts",
   "compatibility_date": "2026-08-29",
   "assets": { "directory": "./public", "binding": "ASSETS", "run_worker_first": ["/api/*"] },
+  "vars": { "TOSS_CLIENT_KEY": "test_gck_docs_Ovk5rk1EwkEbP0W43n07xlzm" },
   "d1_databases": [{ "binding": "DB", "database_name": "inu-ai-shop" }]
 }
