@@ -1,1 +1,6 @@
-(async()=>{const guest=[...document.querySelectorAll('[data-guest]')],user=[...document.querySelectorAll('[data-user]')];let logged=false;try{const r=await fetch('/api/me');logged=r.ok}catch{}guest.forEach(x=>{x.style.visibility=logged?'hidden':'visible';x.style.pointerEvents=logged?'none':'auto'});user.forEach(x=>{x.style.visibility=logged?'visible':'hidden';x.style.pointerEvents=logged?'auto':'none'});document.querySelector('#logout-link')?.addEventListener('click',async e=>{e.preventDefault();await fetch('/api/auth/logout',{method:'POST'});location='/login.html'})})();
+const header=document.querySelector('header');
+if(header){
+  header.innerHTML='<a class="nav-slot" href="/">상품 목록</a><a class="nav-slot" href="/cart.html">장바구니</a><a class="nav-slot" id="auth-action" href="/login.html">로그인</a><a class="nav-slot" id="signup-action" href="/signup.html">회원가입</a><a class="nav-slot" href="/account.html">마이페이지</a><span class="auth-status" id="auth-status">로그인 안 함</span>';
+  const action=document.querySelector('#auth-action'),signup=document.querySelector('#signup-action'),status=document.querySelector('#auth-status');
+  (async()=>{try{const response=await fetch('/api/me');if(!response.ok)return;const user=await response.json();action.textContent='로그아웃';action.href='#';action.addEventListener('click',async event=>{event.preventDefault();await fetch('/api/auth/logout',{method:'POST'});location='/login.html'});signup.style.visibility='hidden';signup.style.pointerEvents='none';status.textContent=`${user.name}님 로그인됨`;}catch{}})();
+}
