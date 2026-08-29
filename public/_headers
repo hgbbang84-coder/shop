@@ -1,0 +1,8 @@
+/*.js
+  Cache-Control: public, max-age=300, stale-while-revalidate=60
+
+/*.css
+  Cache-Control: public, max-age=300, stale-while-revalidate=60
+
+/products/*
+  Cache-Control: public, max-age=300, stale-while-revalidate=60
